@@ -1,39 +1,36 @@
 import java.util.Random;
 
 public class Fight {
-    void fight(Character first, Character second){
+    public void fight(Character first, Character second) {
         boolean b = true, tie = false;
 
-        inr udar = new Random().nextInt(1);
+        int udar = new Random().nextInt(1);
 
-        while( first.isAlive() && second.isAlive()){
+        while (first.isAlive() && second.isAlive()) {
             if (udar == 1) {
                 first.kick(second);
-                udar ++;
-            }
-            else {
+                udar++;
+            } else {
                 second.kick(first);
                 udar = 1;
             }
 
-            if(first.power == 0 && 0 == second.power) {
+            if (first.getHp() == 0 && 0 == second.getHp()) {
                 tie = true;
             }
         }
-        if(tie){
+        if (tie) {
             System.out.println("ALL DEAD SO GOD WINS");
-        }
-        else if(first.isAlive()){
+        } else if (first.isAlive()) {
             HORRAY(first);
-        }
-        else {
+        } else {
             HORRAY(second);
         }
-
-        void HORRAY( Character p) {
+    }
+        private void HORRAY( Character p) {
             System.out.println(p.name + " WINNER OF THE BATTLE");
             System.out.println("ALL GLORY TO" + p.name );
         }
     }
-    }
+
 

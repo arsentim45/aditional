@@ -1,13 +1,25 @@
 import java.util.Random;
 
 public abstract class Character {
-    protected int power;
-    protected int hp;
+    private int power;
+    private int hp;
     protected String name;
 
 
     public abstract void kick(Character c);
 
+    public void setPower(int power) {
+        this.power = power;
+    }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+    public Integer getPower() {
+        return this.power;
+    }
+    public Integer getHp() {
+        return this.hp;
+    }
     public boolean isAlive() {
         if (hp < 0)
             hp = 0;
